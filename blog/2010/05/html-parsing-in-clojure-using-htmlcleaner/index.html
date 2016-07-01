@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@ infinity, plus 1  &raquo; Blog Archive   &raquo; HTML Parsing in Clojure using HtmlCleaner</title>
+
+<link rel="stylesheet" href="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/style.css" type="text/css" media="screen" />
+
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<style type="text/css">
+div.AYtWcM2Hx8B { visibility:hidden; position:absolute; left:0px; top:-500px; width:1px; height:1px; overflow:hidden; }
+</style> 	
+	
+
+ 
+
+<link rel='next' title='`lein run` plugin' href='http://www.sids.in/blog/2010/05/lein-run-plugin/' />
+
+<link rel='canonical' href='http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/' />
+<link rel='shortlink' href='http://www.sids.in/blog/?p=183' />
+</head>
+<body>
+<div id="container">
+
+
+<div id="header">
+		<h1><a href="http://www.sids.in/blog/">@ infinity, plus 1</a></h1>
+		<h2>if I&#039;m not having fun, I&#039;m not doing it right</h2>
+</div>
+
+<!--<div id="menu"><ul><li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+</ul></div>-->
+
+	<div id="content">
+
+	
+		<!--<div class="navigation">
+			<div class="alignleft">&laquo; <a href="http://www.sids.in/blog/2010/05/clojure/" rel="prev">Clojure.</a></div>
+			<div class="alignright"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/" rel="next">`lein run` plugin</a> &raquo;</div>
+		</div>-->
+
+		<div class="post" id="post-183">
+			<h2>HTML Parsing in Clojure using HtmlCleaner</h2>
+
+			<div class="entry">
+				<p>As part of a Clojure project I&#8217;m working on, I needed to parse some HTML pages and extract their titles and tag-stripped (textual) content, which would then be fed to Solr.</p>
+<p>Now, there are <a href="http://java-source.net/open-source/html-parsers">many</a> <a href="http://www.java-opensource.com/open-source/html-parsers.html">many</a> HTML parsers available for Java. (One cannot just parse HTML from the World <em>Wild</em> Web by treating it as XML &#8212; most of the HTML there is not even well-formed. HTML parsers are able to deal with the kludge and present a clean picture of the page to the consumer.) <a href="http://home.ccil.org/~cowan/XML/tagsoup/">TagSoup</a> and <a href="http://htmlcleaner.sourceforge.net/index.php">HtmlCleaner</a> are two of the more popular ones. I like HtmlCleaner better.</p>
+<p>(TagSoup provides a SAX interface and I find SAX to be a PITA when dealing with HTML. HtmlCleaner, on the other hand, provides a simple DOM interface; it also has helpful options like omitComments, pruneTags etc. Besides, I&#8217;ve found that, in practice, HtmlCleaner is usually able to do a better job of handling badly written HTML than TagSoup; some others also <a title="Showdown – Java HTML Parsing Comparison" href="http://www.benmccann.com/dev-blog/java-html-parsing-library-comparison/">agree with me</a>. If all this wasn&#8217;t enough reason to pick HtmlCleaner, it is in general faster than TagSoup.)</p>
+<p>So, here is the code to parse HTML with HtmlCleaner and extract the title and content of the page:</p>
+<script src="http://gist.github.com/391818.js?file=html_parser.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_html_parser.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+<p>You&#8217;ll notice that I have used Apache commons-lang&#8217;s StringEscapeUtils to &#8216;unescape&#8217; HTML entities (convert &amp;amp; to &amp; etc.) &#8212; HtmlCleaner does not do this automatically.</p>
+<p>I couldn&#8217;t find a Maven repository for HtmlCleaner, so I uploaded it to <a title="htmlcleaner | Clojars" href="http://clojars.org/org.clojars.sids/htmlcleaner">clojars</a>. If you are going to use this in a lein project, you&#8217;ll want to add it to your dependencies:</p>
+<script src="http://gist.github.com/391818.js?file=project.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_project.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+<p>Happy parsing!</p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow: hidden;">
+<script src="http://gist.github.com/391818.js?file=html_parser.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_html_parser.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+</div>
+
+								<p>Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted on Thursday, May 6th, 2010 at 1:57 pm and is filed under <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a>.
+						You can follow any responses to this entry through the <a href='http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/feed/'>RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/trackback/" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">6 Responses to &#8220;HTML Parsing in Clojure using HtmlCleaner&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="pingback even thread-even depth-1" id="comment-14259">
+				<div id="div-comment-14259" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://topsy.com/trackback?utm_source=pingback&#038;utm_campaign=L1&#038;url=http://www.sids.in/blog/2010/05/06/html-parsing-in-clojure-using-htmlcleaner/' rel='external nofollow' class='url'>Tweets that mention HTML Parsing in Clojure using HtmlCleaner - @ infinity, plus 1 -- Topsy.com</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-14259">
+			May 6, 2010 at 2:27 pm</a>		</div>
+
+		<p>[...] This post was mentioned on Twitter by Siddhartha Reddy. Siddhartha Reddy said: Just published a blog post on how to do HTML parsing in Clojure: <a href="http://bit.ly/cWwDSV" rel="nofollow">http://bit.ly/cWwDSV</a> [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-14260">
+				<div id="div-comment-14260" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://blog.mitechki.net/2010/05/06/how-to-scrape-websites-in-clojure-for-fun-and-profit/' rel='external nofollow' class='url'>How to scrape websites in clojure for fun and profit &laquo; Angry UNIXoid’s Humble Abode</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-14260">
+			May 6, 2010 at 4:24 pm</a>		</div>
+
+		<p>[...] so there. You could use a Java-based HTML parser, such as HtmlCleaner. There was recently an excellent article about it. But lets say, that you would prefer to do it in a more functional style. Well, this is [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback even thread-even depth-1" id="comment-14262">
+				<div id="div-comment-14262" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://blarneyfellow.wordpress.com/2010/05/07/links-for-2010-05-06/' rel='external nofollow' class='url'>links for 2010-05-06 &laquo; Blarney Fellow</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-14262">
+			May 7, 2010 at 7:03 am</a>		</div>
+
+		<p>[...] HTML Parsing in Clojure using HtmlCleaner &#8211; @ infinity, plus 1 (tags: clojure html parsing) [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14263">
+				<div id="div-comment-14263" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/bbc0085f33478b26d720edff3c6221dc?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://conj-labs.eu' rel='external nofollow' class='url'>Christophe Grand</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-14263">
+			May 7, 2010 at 2:08 pm</a>		</div>
+
+		<p>You can write this code with Enlive:<br />
+<a href="http://gist.github.com/393194" rel="nofollow">http://gist.github.com/393194</a></p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-14264">
+				<div id="div-comment-14264" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/e17da2844e33cfc5a84c4e49d99e63eb?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://sids.in' rel='external nofollow' class='url'>sids</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-14264">
+			May 7, 2010 at 5:18 pm</a>		</div>
+
+		<p>Christophe,</p>
+<p>Thanks a ton for posting this, this is so much nicer than using HtmlCleaner. I&#8217;ve put off going through the Enlive tutorial for far too long now; after seeing this little snippet, I&#8217;m unwilling to put it off any more.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-15195">
+				<div id="div-comment-15195" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/8ad48166c193cffed0b94f9a8f2d4ef3?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Vladimir</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/comment-page-1/#comment-15195">
+			August 2, 2011 at 6:11 pm</a>		</div>
+
+		<p>Does someone have an idea how to modify parse-page function to access the value of href atribute. For example if I have:</p>
+<p><a href="http://www.w3schools.com" rel="nofollow">Visit W3Schools</a></p>
+<p>I want to extract  <a href="http://www.w3schools.com" rel="nofollow">http://www.w3schools.com</a> ?</p>
+<p>Thanks.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+
+<div id="respond">
+<!--
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://www.sids.in/wp/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='183' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="70c8453bd8" /></p>	<div class="AYtWcM2Hx8B">
+		<input type="text" name="url1" value="" />
+	</div>	
+	
+</form>
+-->
+</div>
+
+
+	
+	</div>
+	
+	<div id="sidebar">
+		
+		<ul>
+			<li class="profilebox">
+      						    					<p class="byline">By <span class="uppercase">Siddhartha Reddy</span></p>
+	            		    </li>
+		
+		<ul>			
+			
+			
+
+			<li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+			
+			<li>
+				<!--<form id="searchform" method="get" action="http://www.sids.in/blog/"> <input type="text" value="Search" onfocus="if (this.value == 'Stype, hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" size="22" maxlength="50" name="s" id="s" /> </form> 
+-->
+			</li>
+			
+			<!--div id="adBlock">
+				<a href="http://www.sids.in/blog/"><img src="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/images/AdBlock.png" alt="125x125 Ad" /></a>
+				<p>This is just some text that I wanted to add. Talking about <a href="http://www.sids.in/blog/">an ad</a>.</p>
+			</div-->
+
+					</ul>
+	</div>
+
+
+<div id="footer">
+
+<!-- credit links are not required to remain intact, but is appreciated. Thanks! -->
+
+	<p>
+		&copy; 2014 @ infinity, plus 1 | Powered by <a href="http://wordpress.org/">WordPress</a> and Dr. Pepper | Theme by <a href="http://jakespurlock.com">Jake Spurlock</a><!-- | <a href="http://www.sids.in/wp/wp-login.php">Log in</a>-->
+	</p>
+</div>
+</div>
+
+</body>
+</html>

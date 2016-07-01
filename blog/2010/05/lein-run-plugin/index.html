@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@ infinity, plus 1  &raquo; Blog Archive   &raquo; `lein run` plugin</title>
+
+<link rel="stylesheet" href="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/style.css" type="text/css" media="screen" />
+
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<style type="text/css">
+div.AOhovPBekm4 { visibility:hidden; position:absolute; left:0px; top:-500px; width:1px; height:1px; overflow:hidden; }
+</style> 	
+	
+
+ 
+
+
+<link rel='canonical' href='http://www.sids.in/blog/2010/05/lein-run-plugin/' />
+<link rel='shortlink' href='http://www.sids.in/blog/?p=197' />
+</head>
+<body>
+<div id="container">
+
+
+<div id="header">
+		<h1><a href="http://www.sids.in/blog/">@ infinity, plus 1</a></h1>
+		<h2>if I&#039;m not having fun, I&#039;m not doing it right</h2>
+</div>
+
+<!--<div id="menu"><ul><li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+</ul></div>-->
+
+	<div id="content">
+
+	
+		<!--<div class="navigation">
+			<div class="alignleft">&laquo; <a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/" rel="prev">HTML Parsing in Clojure using HtmlCleaner</a></div>
+			<div class="alignright"></div>
+		</div>-->
+
+		<div class="post" id="post-197">
+			<h2>`lein run` plugin</h2>
+
+			<div class="entry">
+				<p>Did I ever mention that <a href="http://github.com/technomancy/leiningen">leiningen</a>, the Clojure build tool, is awesome? Anything that spares a programmer in the Java world from the hell that is XML config files (I&#8217;m looking at you, <a href="http://ant.apache.org/">ant</a> and <a href="http://maven.apache.org/">maven</a>, the gatekeepers of hell) will find itself being declared as much. To top it off, leiningen (lein, for short) uses Maven under the hood, thus utilizing a lot of the existing infrastructure (repositories, dependency trees etc.)</p>
+<p>Custom &#8220;tasks&#8221; in leiningen are simple Clojure functions. Oh the joy! I&#8217;ve written several custom tasks for several different projects over the last couple of months. But the one I wrote most recently &#8212; lein run &#8212; is the task that has the most utility outside of those projects. So I created a plugin out of it: <a href="http://github.com/sids/lein-run/">http://github.com/sids/lein-run/</a>.</p>
+<p>From the README:</p>
+<blockquote><p>A leiningen plugin to call a function in a new process or run a .clj file.</p>
+<p>lein-run is extremely useful when you want to launch long-running Clojure process from the command line. For example, it can be used to start a server (a web server like Compojure) or to start a process that will run in an infinite loop (a process waiting for messages from a message queue, a twitter client etc.)</p></blockquote>
+
+								<p>Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a>, <a href="http://www.sids.in/blog/tag/leiningen/" rel="tag">leiningen</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted on Friday, May 7th, 2010 at 4:15 pm and is filed under <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a>.
+						You can follow any responses to this entry through the <a href='http://www.sids.in/blog/2010/05/lein-run-plugin/feed/'>RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="http://www.sids.in/blog/2010/05/lein-run-plugin/trackback/" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">6 Responses to &#8220;`lein run` plugin&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-14266">
+				<div id="div-comment-14266" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/20a7eb5b792999d37386ddf622543c71?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">Wilkes Joiner</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14266">
+			May 7, 2010 at 7:58 pm</a>		</div>
+
+		<p>I&#8217;ve been putting off writing something like this for a while.  I can&#8217;t wait to try it out. Thanks!</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14267">
+				<div id="div-comment-14267" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/869b28ae56ceea1b71b4ca509fb41943?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">K</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14267">
+			May 7, 2010 at 9:17 pm</a>		</div>
+
+		<p>Awesome! No need for shell scripts anymore.</p>
+<p>However, are you sure you add the src directory in the classpath, because launching lein run on one of my test file fails (clojure depencies are not resolved)</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-14268">
+				<div id="div-comment-14268" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/e17da2844e33cfc5a84c4e49d99e63eb?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://sids.in' rel='external nofollow' class='url'>sids</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14268">
+			May 7, 2010 at 9:24 pm</a>		</div>
+
+		<p>K,</p>
+<p>Can you tell me how you are calling lein run? Passing the file path to it?</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-14269">
+				<div id="div-comment-14269" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/e17da2844e33cfc5a84c4e49d99e63eb?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://sids.in' rel='external nofollow' class='url'>sids</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14269">
+			May 7, 2010 at 9:40 pm</a>		</div>
+
+		<p>K,</p>
+<p>I&#8217;ve pushed an update to the 1.0.0-SNAPSHOT. Can you try that and let me know if the problem persists?</p>
+<p>Thanks.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-14270">
+				<div id="div-comment-14270" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/869b28ae56ceea1b71b4ca509fb41943?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">K</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14270">
+			May 7, 2010 at 9:49 pm</a>		</div>
+
+		<p>It works fine now, thanks a lot.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-14271">
+				<div id="div-comment-14271" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://topsy.com/trackback?utm_source=pingback&#038;utm_campaign=L1&#038;url=http://www.sids.in/blog/2010/05/07/lein-run-plugin/' rel='external nofollow' class='url'>Tweets that mention `lein run` plugin - @ infinity, plus 1 -- Topsy.com</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/comment-page-1/#comment-14271">
+			May 8, 2010 at 1:27 am</a>		</div>
+
+		<p>[...] This post was mentioned on Twitter by Javier Neira. Javier Neira said: `lein run` plugin &#8211; @ infinity, plus 1 <a href="http://bit.ly/aM731b" rel="nofollow">http://bit.ly/aM731b</a> [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+
+<div id="respond">
+<!--
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2010/05/lein-run-plugin/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://www.sids.in/wp/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='197' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3bbbcb0c4f" /></p>	<div class="AOhovPBekm4">
+		<input type="text" name="emailConfirm" value="" />
+	</div>	
+	
+</form>
+-->
+</div>
+
+
+	
+	</div>
+	
+	<div id="sidebar">
+		
+		<ul>
+			<li class="profilebox">
+      						    					<p class="byline">By <span class="uppercase">Siddhartha Reddy</span></p>
+	            		    </li>
+		
+		<ul>			
+			
+			
+
+			<li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+			
+			<li>
+				<!--<form id="searchform" method="get" action="http://www.sids.in/blog/"> <input type="text" value="Search" onfocus="if (this.value == 'Stype, hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" size="22" maxlength="50" name="s" id="s" /> </form> 
+-->
+			</li>
+			
+			<!--div id="adBlock">
+				<a href="http://www.sids.in/blog/"><img src="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/images/AdBlock.png" alt="125x125 Ad" /></a>
+				<p>This is just some text that I wanted to add. Talking about <a href="http://www.sids.in/blog/">an ad</a>.</p>
+			</div-->
+
+					</ul>
+	</div>
+
+
+<div id="footer">
+
+<!-- credit links are not required to remain intact, but is appreciated. Thanks! -->
+
+	<p>
+		&copy; 2014 @ infinity, plus 1 | Powered by <a href="http://wordpress.org/">WordPress</a> and Dr. Pepper | Theme by <a href="http://jakespurlock.com">Jake Spurlock</a><!-- | <a href="http://www.sids.in/wp/wp-login.php">Log in</a>-->
+	</p>
+</div>
+</div>
+
+</body>
+</html>

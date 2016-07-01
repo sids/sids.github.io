@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@ infinity, plus 1  </title>
+
+<link rel="stylesheet" href="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/style.css" type="text/css" media="screen" />
+
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<style type="text/css">
+div.Aj3XSDE83Xn { visibility:hidden; position:absolute; left:0px; top:-500px; width:1px; height:1px; overflow:hidden; }
+</style> 	
+	
+ 
+
+</head>
+<body>
+<div id="container">
+
+
+<div id="header">
+		<h1><a href="http://www.sids.in/blog/">@ infinity, plus 1</a></h1>
+		<h2>if I&#039;m not having fun, I&#039;m not doing it right</h2>
+</div>
+
+<!--<div id="menu"><ul><li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+</ul></div>-->
+
+	<div id="content">
+
+	
+		
+			<div class="post" id="post-197">
+				<h2><a href="http://www.sids.in/blog/2010/05/lein-run-plugin/" rel="bookmark" title="Permanent Link to `lein run` plugin">`lein run` plugin</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>May 7th, 2010 by sids</h5>-->
+
+				<div class="entry">
+					<p>Did I ever mention that <a href="http://github.com/technomancy/leiningen">leiningen</a>, the Clojure build tool, is awesome? Anything that spares a programmer in the Java world from the hell that is XML config files (I&#8217;m looking at you, <a href="http://ant.apache.org/">ant</a> and <a href="http://maven.apache.org/">maven</a>, the gatekeepers of hell) will find itself being declared as much. To top it off, leiningen (lein, for short) uses Maven under the hood, thus utilizing a lot of the existing infrastructure (repositories, dependency trees etc.)</p>
+<p>Custom &#8220;tasks&#8221; in leiningen are simple Clojure functions. Oh the joy! I&#8217;ve written several custom tasks for several different projects over the last couple of months. But the one I wrote most recently &#8212; lein run &#8212; is the task that has the most utility outside of those projects. So I created a plugin out of it: <a href="http://github.com/sids/lein-run/">http://github.com/sids/lein-run/</a>.</p>
+<p>From the README:</p>
+<blockquote><p>A leiningen plugin to call a function in a new process or run a .clj file.</p>
+<p>lein-run is extremely useful when you want to launch long-running Clojure process from the command line. For example, it can be used to start a server (a web server like Compojure) or to start a process that will run in an infinite loop (a process waiting for messages from a message queue, a twitter client etc.)</p></blockquote>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a>, <a href="http://www.sids.in/blog/tag/leiningen/" rel="tag">leiningen</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a> |   <a href="http://www.sids.in/blog/2010/05/lein-run-plugin/#comments" title="Comment on `lein run` plugin">6 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-183">
+				<h2><a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/" rel="bookmark" title="Permanent Link to HTML Parsing in Clojure using HtmlCleaner">HTML Parsing in Clojure using HtmlCleaner</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>May 6th, 2010 by sids</h5>-->
+
+				<div class="entry">
+					<p>As part of a Clojure project I&#8217;m working on, I needed to parse some HTML pages and extract their titles and tag-stripped (textual) content, which would then be fed to Solr.</p>
+<p>Now, there are <a href="http://java-source.net/open-source/html-parsers">many</a> <a href="http://www.java-opensource.com/open-source/html-parsers.html">many</a> HTML parsers available for Java. (One cannot just parse HTML from the World <em>Wild</em> Web by treating it as XML &#8212; most of the HTML there is not even well-formed. HTML parsers are able to deal with the kludge and present a clean picture of the page to the consumer.) <a href="http://home.ccil.org/~cowan/XML/tagsoup/">TagSoup</a> and <a href="http://htmlcleaner.sourceforge.net/index.php">HtmlCleaner</a> are two of the more popular ones. I like HtmlCleaner better.</p>
+<p>(TagSoup provides a SAX interface and I find SAX to be a PITA when dealing with HTML. HtmlCleaner, on the other hand, provides a simple DOM interface; it also has helpful options like omitComments, pruneTags etc. Besides, I&#8217;ve found that, in practice, HtmlCleaner is usually able to do a better job of handling badly written HTML than TagSoup; some others also <a title="Showdown – Java HTML Parsing Comparison" href="http://www.benmccann.com/dev-blog/java-html-parsing-library-comparison/">agree with me</a>. If all this wasn&#8217;t enough reason to pick HtmlCleaner, it is in general faster than TagSoup.)</p>
+<p>So, here is the code to parse HTML with HtmlCleaner and extract the title and content of the page:</p>
+<script src="http://gist.github.com/391818.js?file=html_parser.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_html_parser.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+<p>You&#8217;ll notice that I have used Apache commons-lang&#8217;s StringEscapeUtils to &#8216;unescape&#8217; HTML entities (convert &amp;amp; to &amp; etc.) &#8212; HtmlCleaner does not do this automatically.</p>
+<p>I couldn&#8217;t find a Maven repository for HtmlCleaner, so I uploaded it to <a title="htmlcleaner | Clojars" href="http://clojars.org/org.clojars.sids/htmlcleaner">clojars</a>. If you are going to use this in a lein project, you&#8217;ll want to add it to your dependencies:</p>
+<script src="http://gist.github.com/391818.js?file=project.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_project.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+<p>Happy parsing!</p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow: hidden;">
+<script src="http://gist.github.com/391818.js?file=html_parser.clj"></script><noscript><code class="gist">-----------------------------------------------------<br/>Javascript must be enabled view this code.<br/>You can also view it at <a href="http://gist.github.com/391818#file_html_parser.clj">gist.github</a>.<br/>-----------------------------------------------------</code></noscript>
+</div>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a> |   <a href="http://www.sids.in/blog/2010/05/html-parsing-in-clojure-using-htmlcleaner/#comments" title="Comment on HTML Parsing in Clojure using HtmlCleaner">6 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-177">
+				<h2><a href="http://www.sids.in/blog/2010/05/clojure/" rel="bookmark" title="Permanent Link to Clojure.">Clojure.</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>May 3rd, 2010 by sids</h5>-->
+
+				<div class="entry">
+					<p>A few months ago, I had <a title="Beginning Functional Programming" href="http://www.sids.in/blog/2009/10/20/beginning-functional-programming/">mentioned</a> that I was planning to learn a Functional Programming language. In that blog post I listed out the different functional languages I was looking at and outlined my thought process for picking one of them. I picked <a href="http://clojure.org/">Clojure</a>.</p>
+<p>Was that a good decision? No. It was a great decision. (Pardon the corniness.)</p>
+<p>I have learned more while programming in Clojure than while programming in any other language since I first learned C some 12 years ago. <a href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html">Alan Perlis</a> once said: &#8220;A language that doesn&#8217;t affect the way you think about programming, is not worth knowing&#8221;. Amen.</p>
+<p>Over the last decade, I have dabbled in several programming languages including C, C++, VB, C#, Java, Perl, Python, Ruby&#8230; Now, these are all more similar than they are different. I know, you won&#8217;t truly believe that statement unless you&#8217;ve some experience with a language which is drastically different from them; ignorance is bliss. Clojure is different. Very Different. Very.</p>
+<p>So different indeed that I have taken more time to become sort-of-comfortable with Clojure than I have ever taken to reach the same state for any other language I&#8217;ve learned. Being <a title="Homoiconicity on Wikipedia" href="http://en.wikipedia.org/wiki/Homoiconicity">homoiconic</a>, Clojure actually has very little syntax. But the problem lied in retraining my OOP-corrupted brain to <em>think functionally</em> and in getting comfortable working with <a title="Clojure - Data Structures" href="http://clojure.org/data_structures">immutable data structures</a>.</p>
+<p>Luckily, SICP rescued me. (SICP stands for <a title="Wikipedia" href="http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs">Structure and Interpretation of Computer Programs</a>. It is one of the most legendary books in the history of Computer Science. That many people I talk to in India have never even heard of it tells a sad story about the state of Computer Science education here.) Quite simply, it is the best programming book I&#8217;ve ever read. And I&#8217;ve only read &#8212; and worked out the exercises of &#8212; the first chapter (there are only five chapters in all.) SICP uses Scheme (a Lisp dialect) as the language of instruction, but it is quite trivial to translate the programs to Clojure. Although, SICP is not teaching a programming language, it is teaching programming. Big difference. Take a moment to think about that. I highly recommend you read at least the first chapter of SICP, whether you care to learn to program in Lisp or not. If you&#8217;re in India, you can order a copy of it from <a title="SICP on Flipkart.com" href="http://www.flipkart.com/book/structure-interpretation-computer-programs-abelson/8173715270?affid=INSiddhblo">here</a> (the book is also available as a free download from its website.)</p>
+<p>Now I&#8217;ve reached a stage where, when I&#8217;m programming in any other language &#8212; even Ruby, the most beautiful of all the other languages I know &#8212; I feel as if I&#8217;m doing it wrong. All wrong. I&#8217;ve slowly but surely started to apply some of the concepts I&#8217;ve learned while programming Clojure when programming in other languages too. See Alan Perlis&#8217; quote above.</p>
+<p>I&#8217;m working on a couple of open source libraries in Clojure, which I hope to announce soon. Almost all of the weekend hacks I do these days are also in Clojure. I&#8217;m addicted!</p>
+<p>I&#8217;m planning to blog some adventures and neat tricks I&#8217;m conjuring up using Clojure. If you are interested, you can <a title="Feed for tag 'clojure'" href="http://www.sids.in/blog/feed/?tag=clojure">subscribe</a> to <a href="http://www.sids.in/blog/tag/clojure/">all my Clojure posts</a>.</p>
+<p>I&#8217;ll end this with a few interesting quotes from SICP:</p>
+<blockquote><p>The acts of the mind, wherein it exerts its power over simple ideas, are chiefly these three: 1. Combining several simple ideas into one compound one, and thus all complex ideas are made.  2. The second is bringing two ideas, whether simple or complex, together, and setting them by one another so as to take a view of them at once, without uniting them into one, by which it gets all its ideas of relations. 3.  The third is separating them from all other ideas that accompany them in their real existence: this is called abstraction, and thus all its general ideas are made.</p>
+<p><a name="%_idx_6"></a>John Locke, <em>An Essay Concerning Human Understanding</em> (1690)</p></blockquote>
+<p>This is the preamble to chapter 1. &#8220;Programming is abstraction.&#8221;</p>
+<p>-</p>
+<blockquote><p>We are about to study the idea of a <a name="%_idx_8"></a><a name="%_idx_10"></a><em>computational process</em>. Computational processes are abstract beings that inhabit computers. As they evolve, processes manipulate other abstract things called <a name="%_idx_12"></a><em>data</em>.  The evolution of a process is directed by a pattern of rules called a <a name="%_idx_14"></a><em>program</em>.  People create programs to direct processes. In effect, we conjure the spirits of the computer with our spells.</p>
+<p>A computational process is indeed much like a sorcerer&#8217;s idea of a spirit.  It cannot be seen or touched.  It is not composed of matter at all.  However, it is very real.  It can perform intellectual work. It can answer questions.  It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory.  The programs we use to conjure processes are like a sorcerer&#8217;s spells.  They are carefully composed from symbolic expressions in arcane and esoteric <a name="%_idx_16"></a><em>programming languages</em> that prescribe the tasks we want our processes to perform.</p>
+<p>A computational process, in a correctly working computer, executes programs precisely and accurately.  Thus, like the sorcerer&#8217;s apprentice, novice programmers must learn to understand and to anticipate the consequences of their conjuring.  Even small errors (usually called <a name="%_idx_18"></a><em>bugs</em> or <a name="%_idx_20"></a><em>glitches</em>) in programs can have complex and unanticipated consequences.</p></blockquote>
+<p>These are the first three paragraphs of chapter 1. What a cool metaphor! Sadly, the use of this metaphor is limited to these paragraphs.</p>
+<p>-</p>
+<blockquote><p>&#8220;I think that it&#8217;s extraordinarily important that we in computer science keep fun in computing.  When it started out, it was an awful lot of fun.  Of course, the paying customers got shafted every now and then, and after a while we began to take their complaints seriously. We began to feel as if we really were responsible for the successful, error-free perfect use of these machines.  I don&#8217;t think we are.  I think we&#8217;re responsible for stretching them, setting them off in new directions, and keeping fun in the house.  I hope the field of computer science never loses its sense of fun.  Above all, I hope we don&#8217;t become missionaries.  Don&#8217;t feel as if you&#8217;re Bible salesmen. The world has too many of those already.  What you know about computing other people will learn.  Don&#8217;t feel as if the key to successful computing is only in your hands.  What&#8217;s in your hands, I think and hope, is intelligence: the ability to see the machine as more than when you were first led up to it, that you can make it more.&#8221;</p>
+<p>Alan J. Perlis (April 1, 1922-February 7, 1990)</p></blockquote>
+<p>Alan Perlis isn&#8217;t kidding (does he, ever?) &#8212; programming is fun again. Thank you, Clojure.</p>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a> |   <a href="http://www.sids.in/blog/2010/05/clojure/#comments" title="Comment on Clojure.">4 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-169">
+				<h2><a href="http://www.sids.in/blog/2010/02/regina-spektor-on-the-radio/" rel="bookmark" title="Permanent Link to Regina Spektor &#8211; On The Radio">Regina Spektor &#8211; On The Radio</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>February 27th, 2010 by sids</h5>-->
+
+				<div class="entry">
+					<p>What a beautiful song! Totally love the lyrics, especially in the second half. Thanks to <a href="http://www.sumankarthik.com/">Suman</a> for introducing me to the artist.</p>
+<p>Watch the <a href="http://www.youtube.com/watch?v=tHAhnJbGy9M">video</a>:<br />
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="385" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="src" value="http://www.youtube.com/v/tHAhnJbGy9M&amp;hl=en_US&amp;fs=1&amp;color1=0x3a3a3a&amp;color2=0x999999" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="480" height="385" src="http://www.youtube.com/v/tHAhnJbGy9M&amp;hl=en_US&amp;fs=1&amp;color1=0x3a3a3a&amp;color2=0x999999" allowscriptaccess="always" allowfullscreen="true"></embed></object></p>
+<p>I love this phrase:</p>
+<blockquote><p>And everyone must breathe<br />
+Until their dying breath</p></blockquote>
+<p>And my favourite bit:</p>
+<blockquote><p>You peer inside yourself<br />
+You take the things you like<br />
+And try to love the things you took</p>
+<p>And then you take that love you made<br />
+And stick it into some<br />
+Someone else&#8217;s heart<br />
+Pumping someone else&#8217;s blood</p>
+<p>And walking arm in arm<br />
+You hope it don&#8217;t get harmed<br />
+But even if it does<br />
+You&#8217;ll just do it all again</p></blockquote>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/song/" rel="tag">song</a>, <a href="http://www.sids.in/blog/tag/video/" rel="tag">video</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2010/02/regina-spektor-on-the-radio/#respond" title="Comment on Regina Spektor &#8211; On The Radio">No Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-146">
+				<h2><a href="http://www.sids.in/blog/2010/02/casual-and-unprofessional-not-the-same/" rel="bookmark" title="Permanent Link to Casual and Unprofessional: Not the same">Casual and Unprofessional: Not the same</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>February 12th, 2010 by sids</h5>-->
+
+				<div class="entry">
+					<p>I&#8217;m peeved by a trend I&#8217;ve started to see among Indian startups: trying to be casual and ending up being unprofessional.</p>
+<p>Being casual may be a good thing or a bad thing, depending on who you are targeting. But being unprofessional is never a good thing.</p>
+<p><strong>&lt;Edit</strong>: I&#8217;ve taken off the rant about a particular website that I had here.&gt;</p>
+<p>The worrying thing is that this kind of unprofessional-ism is all too common among Indian startups. (Even my own company&#8217;s corporate website is an offender. At least we are not trying to use it as the forefront of our offerings. But that&#8217;s not an excuse.) We need to buckle up and get our act straightened out.</p>
+<p>Now, I&#8217;m no spelling/grammar Nazi. Heck, my grammar sucks and I look up spellings on Google at least five times a day. But that&#8217;s no excuse for putting up a public website that is sprinkled with spelling mistakes and grammatical errors. Your website is an indicator of how professionally you handle everything else.</p>
+<p>Here are some concrete suggestions (based on my observations):</p>
+<ul>
+<li>Use a spell-checker. They are now integrated into most of the modern Web Browsers. It&#8217;s unfortunate that I even have to state this.</li>
+<li>Don&#8217;t write <em><a href="http://www.its-not-its.info/">&#8220;its&#8221;</a></em><a href="http://www.its-not-its.info/"> when you mean </a><em><a href="http://www.its-not-its.info/">&#8220;it&#8217;s&#8221;</a></em>. Or &#8220;<em>thats&#8221;</em> when you mean &#8220;<em>that&#8217;s&#8221;</em>.</li>
+<li>Don&#8217;t write <a href="http://www.blurtit.com/q500795.html">&#8220;</a><em><a href="http://www.blurtit.com/q500795.html">few</a></em><a href="http://www.blurtit.com/q500795.html">&#8221; when you mean &#8220;</a><em><a href="http://www.blurtit.com/q500795.html">a few</a></em><a href="http://www.blurtit.com/q500795.html">&#8220;</a>. Or &#8220;<em>little</em>&#8221; when you mean &#8220;<em>a little</em>&#8220;.</li>
+<li>Use <a href="http://theoatmeal.com/comics/apostrophe">apostrophes correctly</a> (hat-tip to Varum M).</li>
+</ul>
+<p>I&#8217;ll keep updating this list. You can make suggestions in the comments.</p>
+<p>It doesn&#8217;t take a lot to avoid these mistakes. Please do.</p>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/grammar/" rel="tag">grammar</a>, <a href="http://www.sids.in/blog/tag/startups/" rel="tag">startups</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2010/02/casual-and-unprofessional-not-the-same/#comments" title="Comment on Casual and Unprofessional: Not the same">6 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-140">
+				<h2><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/" rel="bookmark" title="Permanent Link to Beginning Functional Programming">Beginning Functional Programming</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>October 20th, 2009 by sids</h5>-->
+
+				<div class="entry">
+					<p>Warning: Geekspeak ahead.</p>
+<p>I&#8217;ve been wanting to learn a <a title="Functional programming - Wikipedia" href="http://en.wikipedia.org/wiki/Functional_programming">functional programming</a> (FP) language for quite a while now.</p>
+<p>Ruby being my current fav programming language while also being malleable to FP, I thought I will dabble with some FP in Ruby. But that was not to be. While Ruby does have some basic features like <a title="Closure - Wikipedia" href="http://en.wikipedia.org/wiki/Closure_%28computer_science%29">closures</a> that are necessary for FP (although it does not boast of a <a title="Closures in Ruby" href="http://innig.net/software/ruby/closures-in-ruby.rb">a lot of clarity</a>), one has to go through a lot of hooplas to achieve immutability &#8212; the language offers no assistance here. The following video provides a good overview of what it takes to do FP using Ruby: <a title="Video on Vimeo" href="http://vimeo.com/6701329">Better Ruby through Functional Programming by Dean Wampler</a>.</p>
+<p>With Ruby out, I now needed a language that embraced FP wholeheartedly. And there is no dearth of choices here; see the <a href="http://en.wikipedia.org/wiki/Category:Functional_languages">Functional Languages category on Wikipedia</a>. I decided to narrow down the list by picking up the more popular and/or adopted languages. This left me with <a title="Clojure home" href="http://clojure.org/">Clojure</a>, <a title="Common Lisp - Wikipedia" href="http://en.wikipedia.org/wiki/Common_Lisp">Common Lisp</a>, <a title="Erlang - Wikipedia" href="http://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Erlang</a>, <a title="F Sharp - Wikipedia" href="http://en.wikipedia.org/wiki/F_Sharp_%28programming_language%29">F Sharp</a>, <a title="Haskell - Wikipedia" href="http://en.wikipedia.org/wiki/Haskell_%28programming_language%29">Haskell</a> and <a href="http://www.scala-lang.org/">Scala</a> (but many don&#8217;t seem to consider Scala to be truly functional). That&#8217;s still too many languages. But the list is small enough that I could learn enough about each of these languages to be able to pick one that I want to learn right now.</p>
+<p><strong>Clojure</strong>: Lisp dialect, dynamically typed, runs on JVM (and embraces it; implying that any Java library can be used with Clojure with little extra effort), great community. Moreover, it is embraced by my company (one of our very important backend platforms is written mostly in Clojure). More on Clojure later.</p>
+<p><strong>Common Lisp</strong>: The oldest of them all, dynamically typed, really cool. But too many parens for my liking!</p>
+<p><strong>Erlang</strong>: Runs on its own rock solid concurrent runtime system, offers distributed concurrency for free, dynamically typed, allows hot swapping and&#8230;</p>
+<blockquote><p>Meanwhile, back at Ericsson, some Erlang-based products that were  already in progress when the &#8220;ban&#8221; went into effect came to market,  including the AXD 301, an ATM switch with <strong>99.9999999 percent  reliability (9 nines, or 31 ms. downtime a year!)</strong>, which has  captured 11% of the world market. The AXD 301 system includes  <strong>1.7 million lines of Erlang</strong>: This isn&#8217;t just some academic language.</p>
+<p>(from: <a href="http://www.erlang.se/publications/BYTE2003.html">Erlang in BYTE.com</a>; emphasis mine.)</p></blockquote>
+<p><strong>F Sharp</strong>: Runs on the CLR (.NET Framework).</p>
+<p><strong>Haskell</strong>: Pure FP language, static typing.</p>
+<p><strong>Scala</strong>: Runs on JVM, static typing. Very complicated type system, from what I hear.</p>
+<p>The above is obviously not a very thorough overview of the languages. It was not my intention to develop an overview at all; I just gathered enough information to be able to make a decision.</p>
+<p>I like dynamic typing, working on Linux. My company&#8217;s main platform is the JVM. I mostly write Information Retrieval (IR) software and a lot of IR libraries are in Java. <em>Clojure!</em></p>
+<p>But I also like Erlang. I&#8217;ll get to it after I have tamed Clojure. And I also want to learn <a href="http://en.wikipedia.org/wiki/R_%28programming_language%29">R programming language</a> so that I can implement statistical algorithms with ease.</p>
+<p>But what&#8217;s the point of this blog post? Nothing. I plan to blog a bit about FP in general and Clojure in particular and thought that it would be nice to provide some context. Also, I wanted to document at least part of the decision making process I have been through for picking up Clojure.</p>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a>, <a href="http://www.sids.in/blog/tag/programming/" rel="tag">programming</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a> |   <a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/#comments" title="Comment on Beginning Functional Programming">7 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-134">
+				<h2><a href="http://www.sids.in/blog/2009/08/im-not-proud-to-be-an-indian/" rel="bookmark" title="Permanent Link to I&#8217;m NOT proud to be an Indian">I&#8217;m NOT proud to be an Indian</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>August 16th, 2009 by sids</h5>-->
+
+				<div class="entry">
+					<p>Summary: Stop being proud of your country&#8217;s history. Stop being proud of your countrymen&#8217;s achievements. Stop being proud of your country. Strive to make your country proud of you.</p>
+<p>(Yes, I&#8217;m preaching. Only for today.)</p>
+<p>Social networks &#8212; Facebook in particular &#8212; have created a super-culture of show-off. So when it&#8217;s the Indian Independence Day, everyone wants to show off how patriotic they are. In come shouts of &#8220;Proud to be an Indian.&#8221; The following ad by Airtel is an embodiment of all such sentiments:</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="344" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://www.youtube.com/v/VFa2lMXvqUQ&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;feature=player_embedded&amp;fs=1" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="425" height="344" src="http://www.youtube.com/v/VFa2lMXvqUQ&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;feature=player_embedded&amp;fs=1" allowscriptaccess="always" allowfullscreen="true"></embed></object></p>
+<p>(Make no mistake, they&#8217;re not talking about parental pride here. <em>That</em> I don&#8217;t have a problem with.)</p>
+<p>This annoys me to no end. I just don&#8217;t get how anyone is able to take pride in something to which their own contribution has been an absolute zilch. I can understand a feeling of greatfulness. Or reverence. Or even happiness. But pride? How can you ever be proud of something you were merely <em>born</em> into? This applies to taking pride in a country as much as taking pride in a religion, caste or family.</p>
+<p>PS: Lest somebody misunderstands me: I love India as much as anyone else, I&#8217;m happy to be here and would rather be here than anywhere else.</p>
+				</div>
+
+				<!--<p class="postmetadata">Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2009/08/im-not-proud-to-be-an-indian/#comments" title="Comment on I&#8217;m NOT proud to be an Indian">6 Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-125">
+				<h2><a href="http://www.sids.in/blog/2009/08/cognitive-dissonance-of-the-comma/" rel="bookmark" title="Permanent Link to Cognitive Dissonance of the Comma">Cognitive Dissonance of the Comma</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>August 11th, 2009 by sids</h5>-->
+
+				<div class="entry">
+					<p>Here is an excerpt from Jawaharlal Nehru&#8217;s <a title="Tryst with destiny - Wikipedia" href="http://en.wikipedia.org/wiki/Tryst_with_destiny">Tryst with Destiny</a> speech. Beautiful speech. But can you see what is wrong with how it has been reproduced here?</p>
+<blockquote><p>Long years ago we made a tryst with destiny , and now the time comes when we shall redeem our pledge , not wholly or in full measure , but very substantially . At the stroke of the midnight hour , when the world sleeps , India will awake to life and freedom . A moment comes , which comes but rarely in history , when we step out from the old to the new , when an age ends , and when the soul of a nation , long suppressed , finds utterance . Its fitting that at this solemn moment we take the pledge of dedication to the service of India and her people and to the still larger cause of humanity .</p>
+<p>At the dawn of history India started on her unending quest , and trackless centuries are filled with her striving and the grandeur of her success and her failures . Through good and ill fortune alike she has never lost sight of that quest or forgotten the ideals which gave her strength . We end today a period of ill fortune and India discovers herself again . The achievement we celebrate today is but a step , an opening of opportunity , to the greater triumphs and achievements that await us . Are we brave enough and wise enough to grasp this opportunity and accept the challenge of the future ?</p></blockquote>
+<p>The glaringly obvious problem: there is a space before every comma, full stop and question mark. It is so obvious only because your brain wasn&#8217;t expecting it; the brain has certain ideas about how these should be used which clashes with how the above snippet uses them. I call this conflict <em><a title="Cognitive dissonance - Wikipedia" href="http://en.wikipedia.org/wiki/Cognitive_dissonance">cognitive dissonance</a> of the comma</em>.</p>
+<p>(I do realize that cognitive dissonance may not be the most appropriate term to use here. However, it&#8217;s pretty close and makes it sound like I know what I&#8217;m talking about. Maybe I do.)</p>
+<p>Now, I&#8217;m not suggesting that people are going around thinking &#8220;this is how a comma should be used&#8221; all the time. Neither am I suggesting that people will have any problem in understanding the above — our brain is capable of ignoring such aberrations to some extent,  thus  allowing us to understand what is being said. But years of setting expectations for the brain takes its toll. When expectation isn&#8217;t met the brain takes notice, at least at a sub-concious level. I can&#8217;t imagine a prose where you would want to divert the reader&#8217;s attention towards the punctuation — the only accomplishment would be to take away some of the focus from the message.</p>
+<p>I have heard some very amusing reasons for why people continue to use punctuation like this. The common theme seems to be: &#8220;I like it this way. I find text more readable when it is this way.&#8221; Great, so your brain is wired differently from most other people; nothing wrong with that. But the question you need to ask yourself is: &#8220;Who am I writing for? For myself or for others?&#8221;</p>
+<p>Another mistake in the above reproduction — one that is not as obvious but far more common — is the use of &#8220;its&#8221; where &#8220;it&#8217;s&#8221; should have been used. <a href="http://www.its-not-its.info/">http://www.its-not-its.info/</a> does a great job at explaining the difference, so I&#8217;ll not attempt to repeat it here. In summary: &#8220;it&#8217;s&#8221; is just short for &#8220;it is&#8221; and &#8220;its&#8221; indicates possessiveness.</p>
+<p>Yet another mistake that I notice being made very often (this is not present in the above snippet): using &#8220;few&#8221; when one means &#8220;a few.&#8221; This is a big problem because the meaning is the exact opposite! &#8220;Few&#8221; has a negative connotation, indicating an almost complete absence where as &#8220;a few&#8221; has a positive connotation, indicating the presence of something. This discussion at the EnglishForums.com offers some good examples: <a href="http://www.englishforums.com/English/DifferenceBetween/ckcdl/post.htm">Difference between &#8216;few&#8217; and &#8216;a few&#8217;</a>. Here are a few posts from <a href="http://pluggd.in/">PluGGd.in</a>, a popular blog on Indian startups, where this mistake has been made in the title of the post itself:</p>
+<ul>
+<li><a href="http://www.pluggd.in/questions-yahoo-microsoft-search-deal-297/">Few Questions Before We Say GoodBye to Yahoo! Search</a></li>
+<li><a href="http://www.pluggd.in/technology/content-seeding-strategy-twitter-friendfeed-3804/">Content Seeding: Few Great Lessons from Twitter and FriendFeed</a></li>
+<li><a href="http://www.pluggd.in/corporate-entrepreneurship-and-startup-working-model-297/">Bridging the Divide between Enterprise and Startups – Few Ideas</a></li>
+<li><a href="http://www.pluggd.in/technology/seasonal-tweaks-google-lessons-for-startups-4057/">Why Seasonality Matters? Few Lessons from Google</a></li>
+<li><a href="http://www.pluggd.in/india-digital-media/mouthshut-launches-mobile-reviews-microblogging-style-2468/">MouthShut launches Mobile Reviews..Few Questions?</a></li>
+</ul>
+<p>(My intention for pointing to PluGGd.in is only to show how common this mistake is, not to pick on them; Ashish, the guy who runs the blog, is a friend.)</p>
+<p>When PluGGd.in says &#8220;Content Filtering: Few Great Lessons from Twitter and FriendFeed,&#8221; it seems like they want to say that Twitter and FriendFeed have done a terrible job and offer almost no lessons we can use, when, in fact, they list out  some very good lessons they have gleaned out for us!</p>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/english/" rel="tag">english</a>, <a href="http://www.sids.in/blog/tag/grammar/" rel="tag">grammar</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2009/08/cognitive-dissonance-of-the-comma/#respond" title="Comment on Cognitive Dissonance of the Comma">No Comments &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-113">
+				<h2><a href="http://www.sids.in/blog/2009/08/what-i-want-to-be-when-i-grow-up%e2%80%a6/" rel="bookmark" title="Permanent Link to What I want to be when I grow up…">What I want to be when I grow up…</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>August 8th, 2009 by sids</h5>-->
+
+				<div class="entry">
+					<p>(<a title="The Best Article Every Day" href="http://www.bspcn.com/2009/05/20/what-i-want-to-be-when-i-grow-up/">via</a>)</p>
+<div class="wp-caption alignnone" style="width: 430px"><a href="http://lh6.ggpht.com/_MsZb8mYFoCs/ShQlsFNhhoI/AAAAAAAAGOs/cwZ_Vc_vkuc/s576/CWriXY2b2l3umdhqZrrObRCpo1_500.png"><img title="What I want to be when I grow up..." src="http://lh6.ggpht.com/_MsZb8mYFoCs/ShQlsFNhhoI/AAAAAAAAGOs/cwZ_Vc_vkuc/s576/CWriXY2b2l3umdhqZrrObRCpo1_500.png" alt="They dont understand life." width="420" height="371" /></a><p class="wp-caption-text">Few people do understand life.</p></div>
+				</div>
+
+				<!--<p class="postmetadata">Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2009/08/what-i-want-to-be-when-i-grow-up%e2%80%a6/#comments" title="Comment on What I want to be when I grow up…">1 Comment &#187;</a></p>-->
+			</div>
+
+		
+			<div class="post" id="post-122">
+				<h2><a href="http://www.sids.in/blog/2009/08/twitter-is-down/" rel="bookmark" title="Permanent Link to Twitter is down">Twitter is down</a>&nbsp;&nbsp;&nbsp;&#9733;</h2>
+				<!--<h5>August 6th, 2009 by sids</h5>-->
+
+				<div class="entry">
+					<p>Twitter is down. I&#8217;m missing it. I&#8217;m addicted. Sigh.</p>
+<p>PS: This post is shorter than 140 characters. It should have been a tweet.</p>
+				</div>
+
+				<!--<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/twitter/" rel="tag">twitter</a><br/>Posted in <a href="http://www.sids.in/blog/blog/tags/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a> |   <a href="http://www.sids.in/blog/2009/08/twitter-is-down/#respond" title="Comment on Twitter is down">No Comments &#187;</a></p>-->
+			</div>
+
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="http://www.sids.in/blog/page/2/" >&laquo; Older Entries</a></div>
+			<div class="alignright"></div>
+		</div>
+
+	
+	</div>
+
+	<div id="sidebar">
+		
+		<ul>
+			<li class="profilebox">
+      						    					<p class="byline">By <span class="uppercase">Siddhartha Reddy</span></p>
+	            		    </li>
+		
+		<ul>			
+			
+			
+
+			<li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+			
+			<li>
+				<!--<form id="searchform" method="get" action="http://www.sids.in/blog/"> <input type="text" value="Search" onfocus="if (this.value == 'Stype, hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" size="22" maxlength="50" name="s" id="s" /> </form> 
+-->
+			</li>
+			
+			<!--div id="adBlock">
+				<a href="http://www.sids.in/blog/"><img src="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/images/AdBlock.png" alt="125x125 Ad" /></a>
+				<p>This is just some text that I wanted to add. Talking about <a href="http://www.sids.in/blog/">an ad</a>.</p>
+			</div-->
+
+					</ul>
+	</div>
+
+
+<div id="footer">
+
+<!-- credit links are not required to remain intact, but is appreciated. Thanks! -->
+
+	<p>
+		&copy; 2014 @ infinity, plus 1 | Powered by <a href="http://wordpress.org/">WordPress</a> and Dr. Pepper | Theme by <a href="http://jakespurlock.com">Jake Spurlock</a><!-- | <a href="http://www.sids.in/wp/wp-login.php">Log in</a>-->
+	</p>
+</div>
+</div>
+
+</body>
+</html>

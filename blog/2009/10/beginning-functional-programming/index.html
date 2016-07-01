@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@ infinity, plus 1  &raquo; Blog Archive   &raquo; Beginning Functional Programming</title>
+
+<link rel="stylesheet" href="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/style.css" type="text/css" media="screen" />
+
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<style type="text/css">
+div.AqLz7UybmZ3 { visibility:hidden; position:absolute; left:0px; top:-500px; width:1px; height:1px; overflow:hidden; }
+</style> 	
+	
+
+ 
+
+<link rel='next' title='Casual and Unprofessional: Not the same' href='http://www.sids.in/blog/2010/02/casual-and-unprofessional-not-the-same/' />
+
+<link rel='canonical' href='http://www.sids.in/blog/2009/10/beginning-functional-programming/' />
+<link rel='shortlink' href='http://www.sids.in/blog/?p=140' />
+</head>
+<body>
+<div id="container">
+
+
+<div id="header">
+		<h1><a href="http://www.sids.in/blog/">@ infinity, plus 1</a></h1>
+		<h2>if I&#039;m not having fun, I&#039;m not doing it right</h2>
+</div>
+
+<!--<div id="menu"><ul><li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+</ul></div>-->
+
+	<div id="content">
+
+	
+		<!--<div class="navigation">
+			<div class="alignleft">&laquo; <a href="http://www.sids.in/blog/2009/08/im-not-proud-to-be-an-indian/" rel="prev">I&#8217;m NOT proud to be an Indian</a></div>
+			<div class="alignright"><a href="http://www.sids.in/blog/2010/02/casual-and-unprofessional-not-the-same/" rel="next">Casual and Unprofessional: Not the same</a> &raquo;</div>
+		</div>-->
+
+		<div class="post" id="post-140">
+			<h2>Beginning Functional Programming</h2>
+
+			<div class="entry">
+				<p>Warning: Geekspeak ahead.</p>
+<p>I&#8217;ve been wanting to learn a <a title="Functional programming - Wikipedia" href="http://en.wikipedia.org/wiki/Functional_programming">functional programming</a> (FP) language for quite a while now.</p>
+<p>Ruby being my current fav programming language while also being malleable to FP, I thought I will dabble with some FP in Ruby. But that was not to be. While Ruby does have some basic features like <a title="Closure - Wikipedia" href="http://en.wikipedia.org/wiki/Closure_%28computer_science%29">closures</a> that are necessary for FP (although it does not boast of a <a title="Closures in Ruby" href="http://innig.net/software/ruby/closures-in-ruby.rb">a lot of clarity</a>), one has to go through a lot of hooplas to achieve immutability &#8212; the language offers no assistance here. The following video provides a good overview of what it takes to do FP using Ruby: <a title="Video on Vimeo" href="http://vimeo.com/6701329">Better Ruby through Functional Programming by Dean Wampler</a>.</p>
+<p>With Ruby out, I now needed a language that embraced FP wholeheartedly. And there is no dearth of choices here; see the <a href="http://en.wikipedia.org/wiki/Category:Functional_languages">Functional Languages category on Wikipedia</a>. I decided to narrow down the list by picking up the more popular and/or adopted languages. This left me with <a title="Clojure home" href="http://clojure.org/">Clojure</a>, <a title="Common Lisp - Wikipedia" href="http://en.wikipedia.org/wiki/Common_Lisp">Common Lisp</a>, <a title="Erlang - Wikipedia" href="http://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Erlang</a>, <a title="F Sharp - Wikipedia" href="http://en.wikipedia.org/wiki/F_Sharp_%28programming_language%29">F Sharp</a>, <a title="Haskell - Wikipedia" href="http://en.wikipedia.org/wiki/Haskell_%28programming_language%29">Haskell</a> and <a href="http://www.scala-lang.org/">Scala</a> (but many don&#8217;t seem to consider Scala to be truly functional). That&#8217;s still too many languages. But the list is small enough that I could learn enough about each of these languages to be able to pick one that I want to learn right now.</p>
+<p><strong>Clojure</strong>: Lisp dialect, dynamically typed, runs on JVM (and embraces it; implying that any Java library can be used with Clojure with little extra effort), great community. Moreover, it is embraced by my company (one of our very important backend platforms is written mostly in Clojure). More on Clojure later.</p>
+<p><strong>Common Lisp</strong>: The oldest of them all, dynamically typed, really cool. But too many parens for my liking!</p>
+<p><strong>Erlang</strong>: Runs on its own rock solid concurrent runtime system, offers distributed concurrency for free, dynamically typed, allows hot swapping and&#8230;</p>
+<blockquote><p>Meanwhile, back at Ericsson, some Erlang-based products that were  already in progress when the &#8220;ban&#8221; went into effect came to market,  including the AXD 301, an ATM switch with <strong>99.9999999 percent  reliability (9 nines, or 31 ms. downtime a year!)</strong>, which has  captured 11% of the world market. The AXD 301 system includes  <strong>1.7 million lines of Erlang</strong>: This isn&#8217;t just some academic language.</p>
+<p>(from: <a href="http://www.erlang.se/publications/BYTE2003.html">Erlang in BYTE.com</a>; emphasis mine.)</p></blockquote>
+<p><strong>F Sharp</strong>: Runs on the CLR (.NET Framework).</p>
+<p><strong>Haskell</strong>: Pure FP language, static typing.</p>
+<p><strong>Scala</strong>: Runs on JVM, static typing. Very complicated type system, from what I hear.</p>
+<p>The above is obviously not a very thorough overview of the languages. It was not my intention to develop an overview at all; I just gathered enough information to be able to make a decision.</p>
+<p>I like dynamic typing, working on Linux. My company&#8217;s main platform is the JVM. I mostly write Information Retrieval (IR) software and a lot of IR libraries are in Java. <em>Clojure!</em></p>
+<p>But I also like Erlang. I&#8217;ll get to it after I have tamed Clojure. And I also want to learn <a href="http://en.wikipedia.org/wiki/R_%28programming_language%29">R programming language</a> so that I can implement statistical algorithms with ease.</p>
+<p>But what&#8217;s the point of this blog post? Nothing. I plan to blog a bit about FP in general and Clojure in particular and thought that it would be nice to provide some context. Also, I wanted to document at least part of the decision making process I have been through for picking up Clojure.</p>
+
+								<p>Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a>, <a href="http://www.sids.in/blog/tag/programming/" rel="tag">programming</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted on Tuesday, October 20th, 2009 at 2:35 pm and is filed under <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a>.
+						You can follow any responses to this entry through the <a href='http://www.sids.in/blog/2009/10/beginning-functional-programming/feed/'>RSS 2.0</a> feed.
+
+													You can <a href="#respond">leave a response</a>, or <a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/trackback/" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">7 Responses to &#8220;Beginning Functional Programming&#8221;</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-13742">
+				<div id="div-comment-13742" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/28c08be5625baaaae134156efef35b9d?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://mixdev.posterous.com/' rel='external nofollow' class='url'>Arun Vijayan</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-13742">
+			October 20, 2009 at 3:06 pm</a>		</div>
+
+		<p>For me, FP is pretty hard to understand. However, I clearly see the advantages of it. All the best to you. </p>
+<p>I was (once) very much enthu about learning Haskel. Guess sometime later <img src='http://www.sids.in/wp/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>But please share the experiences &#8212; I love comparisons as I am not very loyal to any language or technology. Will switch for productivity <img src='http://www.sids.in/wp/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13745">
+				<div id="div-comment-13745" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ed779e5566902b4c798244b243d527cf?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://ashokjjr.blogspot.com' rel='external nofollow' class='url'>Ashok</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-13745">
+			October 20, 2009 at 3:11 pm</a>		</div>
+
+		<p>Go for scala ! <img src='http://www.sids.in/wp/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  Its hybrid and best of both the worlds. Pattern Matching is one feature tat counted me in.</p>
+<p>If you really want to learn a lot about FP then Haskell is the way to go. But i&#8217;m yet to hear any real world system based on Haskell (May be my ignorance ). </p>
+<p>Clojure has some nice data struts . If you like/from lisp dialect, you are choice is correct <img src='http://www.sids.in/wp/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-13746">
+				<div id="div-comment-13746" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ed779e5566902b4c798244b243d527cf?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://ashokjjr.blogspot.com' rel='external nofollow' class='url'>Ashok</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-13746">
+			October 20, 2009 at 3:12 pm</a>		</div>
+
+		<p>Yes, as arun said, Share the experience <img src='http://www.sids.in/wp/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13761">
+				<div id="div-comment-13761" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/3a0d39fb42d563496cd8eaefcd9537d5?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://mindwarrior.wordpress.com' rel='external nofollow' class='url'>kopos</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-13761">
+			October 21, 2009 at 10:03 am</a>		</div>
+
+		<p>I&#8217;ve tried Erlang and found it pretty neat. The code is pretty understandable once you are able to wrap your head around the language&#8217;s idiosyncrasies. Though we have nothing in production I am really looking forward to pushing Mochiweb for one of our production environments.</p>
+<p>Looking forward to hearing more about your Clojure experiences.</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-13810">
+				<div id="div-comment-13810" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn"><a href='http://twitter.com/jneira' rel='external nofollow' class='url'>jneira</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-13810">
+			October 26, 2009 at 1:57 am</a>		</div>
+
+		<p>I choosed clojure too because it seems beautiful and straightforward and it is completely different from java but you can use all this ugly code<br />
+Haskell is beautiful too but in a kind of complex beauty.<br />
+You can take a look to my delicious clojure tag to get links&#8230;<br />
+<a href="http://delicious.com/atreyu_bbb/clojure" rel="nofollow">http://delicious.com/atreyu_bbb/clojure</a></p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-14255">
+				<div id="div-comment-14255" class="comment-body">
+				<div class="comment-author vcard">
+				<cite class="fn"><a href='http://www.sids.in/blog/2010/05/03/clojure/' rel='external nofollow' class='url'>Clojure - @ infinity, plus 1</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-14255">
+			May 3, 2010 at 4:59 pm</a>		</div>
+
+		<p>[...] few months ago, I had mentioned that I was planning to learn a Functional Programming language. In that blog post I listed out the [...]</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-14261">
+				<div id="div-comment-14261" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/a2c35055401c3d68dd0b535eaa4e538f?s=32&amp;d=wavatar&amp;r=G' class='avatar avatar-32 photo' height='32' width='32' />		<cite class="fn">gene t</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/comment-page-1/#comment-14261">
+			May 6, 2010 at 5:54 pm</a>		</div>
+
+		<p>To complete the list of FP languages, you might look at OCaml and scheme</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+
+<div id="respond">
+<!--
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2009/10/beginning-functional-programming/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://www.sids.in/wp/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required='true' />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required='true' />
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='140' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="7bb34a5522" /></p>	<div class="AqLz7UybmZ3">
+		<input type="text" name="nickName" value="" />
+	</div>	
+	
+</form>
+-->
+</div>
+
+
+	
+	</div>
+	
+	<div id="sidebar">
+		
+		<ul>
+			<li class="profilebox">
+      						    					<p class="byline">By <span class="uppercase">Siddhartha Reddy</span></p>
+	            		    </li>
+		
+		<ul>			
+			
+			
+
+			<li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+			
+			<li>
+				<!--<form id="searchform" method="get" action="http://www.sids.in/blog/"> <input type="text" value="Search" onfocus="if (this.value == 'Stype, hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" size="22" maxlength="50" name="s" id="s" /> </form> 
+-->
+			</li>
+			
+			<!--div id="adBlock">
+				<a href="http://www.sids.in/blog/"><img src="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/images/AdBlock.png" alt="125x125 Ad" /></a>
+				<p>This is just some text that I wanted to add. Talking about <a href="http://www.sids.in/blog/">an ad</a>.</p>
+			</div-->
+
+					</ul>
+	</div>
+
+
+<div id="footer">
+
+<!-- credit links are not required to remain intact, but is appreciated. Thanks! -->
+
+	<p>
+		&copy; 2014 @ infinity, plus 1 | Powered by <a href="http://wordpress.org/">WordPress</a> and Dr. Pepper | Theme by <a href="http://jakespurlock.com">Jake Spurlock</a><!-- | <a href="http://www.sids.in/wp/wp-login.php">Log in</a>-->
+	</p>
+</div>
+</div>
+
+</body>
+</html>

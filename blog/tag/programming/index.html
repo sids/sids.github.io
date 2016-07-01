@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>@ infinity, plus 1   &raquo; programming</title>
+
+<link rel="stylesheet" href="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/style.css" type="text/css" media="screen" />
+
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<style type="text/css">
+div.ASP2MIT8JFR { visibility:hidden; position:absolute; left:0px; top:-500px; width:1px; height:1px; overflow:hidden; }
+</style> 	
+	
+
+ 
+
+</head>
+<body>
+<div id="container">
+
+
+<div id="header">
+		<h1><a href="http://www.sids.in/blog/">@ infinity, plus 1</a></h1>
+		<h2>if I&#039;m not having fun, I&#039;m not doing it right</h2>
+</div>
+
+<!--<div id="menu"><ul><li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+</ul></div>-->
+
+	<div id="content">
+
+		
+ 	   	  		<h2 class="pagetitle">Posts Tagged &#8216;programming&#8217;</h2>
+ 	  
+
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+				<div class="post">
+				<h3 id="post-140"><a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/" rel="bookmark" title="Permanent Link to Beginning Functional Programming">Beginning Functional Programming</a></h3>
+				<small>Tuesday, October 20th, 2009</small>
+
+				<div class="entry">
+					<p>Warning: Geekspeak ahead.</p>
+<p>I&#8217;ve been wanting to learn a <a title="Functional programming - Wikipedia" href="http://en.wikipedia.org/wiki/Functional_programming">functional programming</a> (FP) language for quite a while now.</p>
+<p>Ruby being my current fav programming language while also being malleable to FP, I thought I will dabble with some FP in Ruby. But that was not to be. While Ruby does have some basic features like <a title="Closure - Wikipedia" href="http://en.wikipedia.org/wiki/Closure_%28computer_science%29">closures</a> that are necessary for FP (although it does not boast of a <a title="Closures in Ruby" href="http://innig.net/software/ruby/closures-in-ruby.rb">a lot of clarity</a>), one has to go through a lot of hooplas to achieve immutability &#8212; the language offers no assistance here. The following video provides a good overview of what it takes to do FP using Ruby: <a title="Video on Vimeo" href="http://vimeo.com/6701329">Better Ruby through Functional Programming by Dean Wampler</a>.</p>
+<p>With Ruby out, I now needed a language that embraced FP wholeheartedly. And there is no dearth of choices here; see the <a href="http://en.wikipedia.org/wiki/Category:Functional_languages">Functional Languages category on Wikipedia</a>. I decided to narrow down the list by picking up the more popular and/or adopted languages. This left me with <a title="Clojure home" href="http://clojure.org/">Clojure</a>, <a title="Common Lisp - Wikipedia" href="http://en.wikipedia.org/wiki/Common_Lisp">Common Lisp</a>, <a title="Erlang - Wikipedia" href="http://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Erlang</a>, <a title="F Sharp - Wikipedia" href="http://en.wikipedia.org/wiki/F_Sharp_%28programming_language%29">F Sharp</a>, <a title="Haskell - Wikipedia" href="http://en.wikipedia.org/wiki/Haskell_%28programming_language%29">Haskell</a> and <a href="http://www.scala-lang.org/">Scala</a> (but many don&#8217;t seem to consider Scala to be truly functional). That&#8217;s still too many languages. But the list is small enough that I could learn enough about each of these languages to be able to pick one that I want to learn right now.</p>
+<p><strong>Clojure</strong>: Lisp dialect, dynamically typed, runs on JVM (and embraces it; implying that any Java library can be used with Clojure with little extra effort), great community. Moreover, it is embraced by my company (one of our very important backend platforms is written mostly in Clojure). More on Clojure later.</p>
+<p><strong>Common Lisp</strong>: The oldest of them all, dynamically typed, really cool. But too many parens for my liking!</p>
+<p><strong>Erlang</strong>: Runs on its own rock solid concurrent runtime system, offers distributed concurrency for free, dynamically typed, allows hot swapping and&#8230;</p>
+<blockquote><p>Meanwhile, back at Ericsson, some Erlang-based products that were  already in progress when the &#8220;ban&#8221; went into effect came to market,  including the AXD 301, an ATM switch with <strong>99.9999999 percent  reliability (9 nines, or 31 ms. downtime a year!)</strong>, which has  captured 11% of the world market. The AXD 301 system includes  <strong>1.7 million lines of Erlang</strong>: This isn&#8217;t just some academic language.</p>
+<p>(from: <a href="http://www.erlang.se/publications/BYTE2003.html">Erlang in BYTE.com</a>; emphasis mine.)</p></blockquote>
+<p><strong>F Sharp</strong>: Runs on the CLR (.NET Framework).</p>
+<p><strong>Haskell</strong>: Pure FP language, static typing.</p>
+<p><strong>Scala</strong>: Runs on JVM, static typing. Very complicated type system, from what I hear.</p>
+<p>The above is obviously not a very thorough overview of the languages. It was not my intention to develop an overview at all; I just gathered enough information to be able to make a decision.</p>
+<p>I like dynamic typing, working on Linux. My company&#8217;s main platform is the JVM. I mostly write Information Retrieval (IR) software and a lot of IR libraries are in Java. <em>Clojure!</em></p>
+<p>But I also like Erlang. I&#8217;ll get to it after I have tamed Clojure. And I also want to learn <a href="http://en.wikipedia.org/wiki/R_%28programming_language%29">R programming language</a> so that I can implement statistical algorithms with ease.</p>
+<p>But what&#8217;s the point of this blog post? Nothing. I plan to blog a bit about FP in general and Clojure in particular and thought that it would be nice to provide some context. Also, I wanted to document at least part of the decision making process I have been through for picking up Clojure.</p>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="http://www.sids.in/blog/tag/clojure/" rel="tag">clojure</a>, <a href="http://www.sids.in/blog/tag/programming/" rel="tag">programming</a><br /> Posted in <a href="http://www.sids.in/blog/blog/tags/programming/" title="View all posts in programming" rel="category tag">programming</a> |   <a href="http://www.sids.in/blog/2009/10/beginning-functional-programming/#comments" title="Comment on Beginning Functional Programming">7 Comments &#187;</a></p>
+
+			</div>
+
+		
+		<div class="navigation">
+			<div class="alignleft"></div>
+			<div class="alignright"></div>
+		</div>
+
+	
+	</div>
+
+	<div id="sidebar">
+		
+		<ul>
+			<li class="profilebox">
+      						    					<p class="byline">By <span class="uppercase">Siddhartha Reddy</span></p>
+	            		    </li>
+		
+		<ul>			
+			
+			
+
+			<li class="page_item page-item-2"><a href="http://www.sids.in/blog/about/">About</a></li>
+			
+			<li>
+				<!--<form id="searchform" method="get" action="http://www.sids.in/blog/"> <input type="text" value="Search" onfocus="if (this.value == 'Stype, hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" size="22" maxlength="50" name="s" id="s" /> </form> 
+-->
+			</li>
+			
+			<!--div id="adBlock">
+				<a href="http://www.sids.in/blog/"><img src="http://www.sids.in/wp/wp-content/themes/a-daring-inspiration/images/AdBlock.png" alt="125x125 Ad" /></a>
+				<p>This is just some text that I wanted to add. Talking about <a href="http://www.sids.in/blog/">an ad</a>.</p>
+			</div-->
+
+					</ul>
+	</div>
+
+
+<div id="footer">
+
+<!-- credit links are not required to remain intact, but is appreciated. Thanks! -->
+
+	<p>
+		&copy; 2014 @ infinity, plus 1 | Powered by <a href="http://wordpress.org/">WordPress</a> and Dr. Pepper | Theme by <a href="http://jakespurlock.com">Jake Spurlock</a><!-- | <a href="http://www.sids.in/wp/wp-login.php">Log in</a>-->
+	</p>
+</div>
+</div>
+
+</body>
+</html>

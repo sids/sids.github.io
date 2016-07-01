@@ -1,0 +1,358 @@
+/****** base ******/
+a {
+    text-decoration: none;
+}
+a:hover, a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/****** typography ******/
+/* Fontin - A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+
+/* Font definition for Internet Explorer */
+/*         (*must* be first)             */
+@font-face {
+    font-family: Fontin;
+    src: url(../fonts/Fontin-Regular.eot) /* can't use format() */;
+}
+@font-face {
+    font-family: Fontin;
+    src: url(../fonts/Fontin-Regular.ttf) format("truetype");
+}
+/*@font-face {
+    font-family: Fontin Bold;
+    src: url(/fonts/Fontin-Bold.ttf) format("truetype");
+    font-weight: bold;
+}
+@font-face {
+    font-family: Fontin Italic;
+    src: url(/fonts/Fontin-Regular.ttf) format("truetype");
+    font-style: italic;
+}
+@font-face {
+    font-family: Fontin SmallCaps;
+    src: url(/fonts/Fontin-SmallCaps.ttf) format("truetype");
+}*/
+body {
+    font-family: Fontin, "Trebuchet MS", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 100%; /* 13px due to YUI fonts.css */
+}
+strong, em, b, i {
+    font-family: Fontin, "Trebuchet MS", "Lucida Sans", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+h1, h1 em,
+h2, h2 em,
+h3, h3 em {
+    font-family: Fontin, Georgia, "Book Antiqua", Palatino, "Times New Roman", Times, serif;
+}
+
+/****** layout ******/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    text-align: center; /* for IE5 */
+}
+    #doc {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+
+        position: relative;
+    }
+        #hd {
+            text-align: left;
+            width: 960px;
+            margin: 0 auto;
+        }
+        #bd {
+            text-align: left;
+            width: 960px;
+            margin: 0 auto;
+
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            padding-bottom: 2em; /* top + bottom should be same as height of #ft */
+        }
+            #bd:after {
+                content: ".";
+                display: block;
+                clear: both;
+                height: 0;
+                visibility: hidden;
+            }
+        #ft {
+            text-align: left;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 2em;
+        }
+
+/****** backgrounds & colors ******/
+a {
+    color: #99f;
+}
+a:visited, a:active {
+    color: #aae;
+}
+
+html, body {
+    background: #222 url(../images/bg-color.png) repeat scroll;
+}
+body {
+    background: transparent url(../images/top.png) repeat-x scroll;
+}
+    #doc {
+        color: #fff;
+        background: transparent url(../images/bg.png) no-repeat fixed left bottom; 
+    }
+        #hd {
+            background: transparent url(../images/header.png) repeat-x scroll;
+            color: #999;
+
+            filter: alpha(opacity=80);/*Needed for IE*/
+            -moz-opacity:0.8;/*Older mozilla broswers like NN*/
+            -khtml-opacity: 0.8;/*Old versions of Safari and "KHTML" browser engines*/
+            opacity: 0.8;/*FF, Safari, and Opera*/
+        }
+            #hd h1 em {
+                color: #ddd;
+                border-color: #c30;
+            }
+            #hd h1 strong {
+                color: #c30;
+            }
+        #bd {
+            background: transparent url(../images/spot.png) no-repeat scroll 80% 120%;
+        }
+            #content {
+                background: transparent url(../images/spot2.jpg) no-repeat scroll 30% -40%;
+            }
+                #definition {
+                    background: #000;
+
+                    filter: alpha(opacity=50);/*Needed for IE*/
+                    -moz-opacity:0.5;/*Older mozilla broswers like NN*/
+                    -khtml-opacity: 0.5;/*Old versions of Safari and "KHTML" browser engines*/
+                    opacity: 0.5;/*FF, Safari, and Opera*/
+                }
+                    #definition .POS {
+                        color: #666;
+                    }
+            #links {
+                filter: alpha(opacity=60);/*Needed for IE*/
+                -moz-opacity:0.6;/*Older mozilla broswers like NN*/
+                -khtml-opacity: 0.6;/*Old versions of Safari and "KHTML" browser engines*/
+                opacity: 0.6;/*FF, Safari, and Opera*/
+            }
+                #blogs {
+                    background-color: #00080d;
+                }
+                #social {
+                    background-color: #0d0500;
+                }
+        #ft {
+            color: #666;
+        }
+
+/****** hd ******/
+#hd {
+    height: 80px;
+    padding: 18px 10px 12px 0;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+    #hd #logo {
+        float: left;
+    }
+    #hd h1 {
+        font-size: 200%;
+        font-weight: normal;
+        text-transform: uppercase;
+        margin: 0.5em;
+        float: left;
+    }
+        #hd h1 em {
+            font-style: normal;
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+        }
+    #hd #photo {
+        float: right;
+        position: relative;
+        z-index: 2;
+    }
+
+/****** bd ******/
+#bd {
+    padding-top: 1em;
+}
+    #content {
+    }
+        #definition {
+            width: 42em;
+            margin: 0 auto;
+
+            padding: 1em;
+
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+            #definition dt {
+                font-size: 120%;
+                /*font-weight: bold;*/
+                letter-spacing: 1px;
+                word-spacing: 0.2em;
+            }
+                #definition dt:after {
+                    /*content: "(" attr(title) ")";*/
+                    font-size: 0.6em;
+                    font-style: italic;
+                    display: inline;
+                    vertical-align: middle;
+                    margin-left: 2em;
+                }
+                #definition li {
+                    list-style: none;
+                    margin: 1.2em 1em;
+                }
+                    #definition .POS {
+                        font-style: italic;
+                        margin-bottom: 0.2em;
+                    }
+                    #definition .POS:before {
+                        content: "\2014";
+                    }
+    #links {
+        font-size: 85%;
+        height: 8.4em;
+        max-width: 1280;
+        margin: 0 auto;
+
+        text-align: left;
+        position: relative;
+    }
+        #blogs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 1em;
+            padding: 0.7em 1em 1.3em 1em;
+
+            border-top-left-radius: 10px;
+            border-top-right-radius: 100px;
+            -moz-border-radius: 10px 100px 0 0;
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-top-right-radius: 100px;
+        }
+        #social {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            height: 1em;
+            padding: 0.7em 0 1.3em 0;
+
+            text-align: right;
+
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 100px;
+            -moz-border-radius: 0 0 10px 100px;
+            -webkit-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-left-radius: 100px;
+        }
+
+/****** blogs ******/
+#blogs li {
+    list-style: none;
+    display: inline;
+}
+    #blogs li a {
+        background: transparent no-repeat scroll left center;
+        background: url(../images/blog-icons.jpg) no-repeat center left;
+        padding: 2px 20px;
+        line-height: 20px;
+    }
+    #blogs li a:hover {
+        border: none;
+    }
+
+    #blogs .grokin a{ background-position: 0 2px; }
+    #blogs .resume a{ background-position: 0 -34px; }
+    #blogs .sidsin a{ background-position: 0 -70px; }
+
+/****** social ******/
+#social .group {
+    display: inline;
+    margin-left: 20px;
+}
+#social li {
+    list-style: none;
+    display: inline;
+    margin: 6px;
+}
+    #social li a {
+        background: url(../images/social-icons.jpg) no-repeat center center;
+        padding: 2px 10px;
+        line-height: 24px;
+    }
+        #social li a:hover {
+            border: none;
+            color: #668;
+        }
+    #social li.underscore a {
+        color: #000;
+        margin-right: -32px;
+        visibility: hidden;
+    }
+
+    #social li.blipfm a { background-position: 0 0;  }
+    #social li.delicious a { background-position: -36px 0;  }
+    #social li.digg a { background-position: -72px 0;  }
+    #social li.facebook a { background-position: -108px 0;  }
+    #social li.flickr a { background-position: -144px 0;  }
+    #social li.friendfeed a { background-position: -180px 0;  }
+    #social li.github a { background-position: -216px 0;  }
+    #social li.googlereader a { background-position: -252px 0;  }
+    #social li.lastfm a { background-position: -288px 0;  }
+    #social li.librarything a { background-position: -324px 0;  }
+    #social li.linkedin a { background-position: -360px 0;  }
+    #social li.orkut a { background-position: -396px 0;  }
+    #social li.picasa a { background-position: -432px 0;  }
+    #social li.reddit a { background-position: -468px 0;  }
+    #social li.slideshare a { background-position: -504px 0;  }
+    #social li.stackoverflow a { background-position: -540px 0;  }
+    #social li.stumbleupon a { background-position: -576px 0;  }
+    #social li.twitter a { background-position: -612px 0;  }
+    #social li.upcoming a { background-position: -648px 0;  }
+    #social li.youtube a { background-position: -684px 0;  }
+
+/****** ft ******/
+#copyright {
+    font-size: 77%;
+    text-align: center;
+    padding: 0.5em 0.5em 0 0.5em;
+}
+#notice {
+    font-size: 77%;
+    text-align: center;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+#notice a {
+    color: #669;
+}
